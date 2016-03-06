@@ -1,0 +1,66 @@
+﻿<Window x:Class="WpfGridApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:WpfGridApplication1"
+        Title="MainWindow">
+    <Window.Resources>
+        <c:BodyModel  x:Key="myListViewSource"/>
+
+        <DataTemplate x:Key="myName">
+            <!--
+            <TextBlock Text="{Binding Name}" Foreground="Red" TextTrimming="CharacterEllipsis"/>
+            -->
+            <TextBlock Text="{Binding Name}" Foreground="Red"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="myDiscript">
+
+            <TextBlock Text="{Binding Descript}" Foreground="Red" TextTrimming="CharacterEllipsis"/>
+            <!--
+            <TextBlock Text="{Binding Descript}" Foreground="Red"/>
+            -->
+        </DataTemplate>
+
+    </Window.Resources>
+    <DockPanel>
+        <DataGrid Margin="10,10,0,0"
+                  ItemsSource="{Binding Source={StaticResource myListViewSource}, Path=listBody}"
+                  DockPanel.Dock="Left"
+                  >
+        </DataGrid>
+
+        <ListView Margin="0,10,0,0" HorizontalAlignment="Stretch"
+                  ItemsSource="{Binding Source={StaticResource myListViewSource}, Path=listBody}"
+                  DockPanel.Dock="Right"
+                  >
+            <ListView.View >
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Foreground="Red" TextTrimming="CharacterEllipsis" Text="{Binding Descript}">
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn CellTemplate="{DynamicResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myName}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myName}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myName}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myName}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myName}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myName}"/>
+                    <GridViewColumn CellTemplate="{StaticResource myDiscript}"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
