@@ -55,7 +55,8 @@ namespace WpfGridApplication1
         private string _descript = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
         public string Descript
         {
-            get { return _descript; }
+            //get { return _descript; }
+            get { return Convert.ToString(new Random().Next()); }
         }
     }
 }
