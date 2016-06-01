@@ -25,6 +25,17 @@ namespace WpfGridApplication1
         {
             InitializeComponent();
 
+            //ビルドCLRバージョン取得(.NetFramework1.0では使用不可)
+            string clrVerBuild = System.Reflection.Assembly.GetExecutingAssembly().ImageRuntimeVersion;
+
+            Console.WriteLine(clrVerBuild);
+
+            //実行CLRバージョン取得
+
+            string clrVerRuntime = System.Runtime.InteropServices.RuntimeEnvironment.GetSystemVersion();
+
+            Console.WriteLine(clrVerRuntime);
+
         }
     }
 }
